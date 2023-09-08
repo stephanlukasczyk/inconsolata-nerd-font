@@ -11,14 +11,17 @@ packtdszip = true
 typesetfile = {"*.tex"}
 
 -- Sources files
-sourcesfiles =
+sourcefiles =
   {
     "inconsolata-nerd-font.dtx",
     "inconsolata-nerd-font.ins",
-    "inconsolata-nerd-font.tex",
-    "truetype/InconsolataNerdFont-Bold.ttf",
-    "truetype/InconsolataNErdFont-Regular.ttf",
+    "truetype/*.ttf",
   }
+
+tdslocations =
+{
+  "fonts/truetype/" .. module .. "/" .. "*.ttf"
+}
 
 installfiles = {"*.sty", "*.ttf"}
 
