@@ -15,7 +15,7 @@ sourcefiles =
   {
     "inconsolata-nerd-font.dtx",
     "inconsolata-nerd-font.ins",
-    "truetype/*.ttf",
+    "nerd-fonts/patched-fonts/Inconsolata/*.ttf",
   }
 
 tdslocations =
