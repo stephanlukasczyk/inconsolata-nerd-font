@@ -26,10 +26,13 @@
 %
 %<*driver>
 \documentclass{l3doc}
+\usepackage{libertinus-otf}
+\usepackage{hvlogos}
 % The next line is needed so that \GetFileInfo will be able to pick up version
 % data.
 \usepackage{inconsolata-nerd-font}
 \begin{document}
+  \RecordChanges
   \DocInput{\jobname.dtx}
 \end{document}
 %</driver>
@@ -38,9 +41,8 @@
 % \GetFileInfo{inconsolata-nerd-font.sty}
 %
 % \title{^^A
-%   \pkg{inconsolata-nerd-font} -- Support package to use the Inconsolata^^A
+%   \pkg{inconsolata-nerd-font}---Support package to use the Inconsolata^^A
 %   Nerd Font TrueType fonts^^A
-%   \thanks{This file describes \fileversion, last revised \filedate.}^^A
 % }
 %
 % \author{^^A
@@ -50,7 +52,90 @@
 %   }
 % }
 %
+% \date{\fileversion, \filedate}
+%
+% \maketitle
+%
+% \begin{abstract}
+%   Inconsolata is a monospaced font designed by Raph Levien.
+%   It is already available via the \pkg{inconsolata} package.
+%   However, that package provides a pretty old version of the font;
+%   Additionally, the Nerd Font project extended the font by a huge amount of
+%   additional glyphs.
+%   This package provides a convenient interface to load the font for the
+%   \XeTeX{} and \LuaTeX{} engines.
+% \end{abstract}
+%
+% \tableofcontents
+%
 % \begin{documentation}
+%
+% \section{User Manual}\label{sec:doc}
+%
+% The Inconsolata font is a monospaced font designed by Raph Levien.
+% Its current version is available from the Google Fonts project.\footnote{%
+%   \href{https://github.com/googlefonts/Inconsolata}{github.com/googlefonts/Inconsolata}
+% }
+% There exists an extension of this font by the Nerd Font project,\footnote{%
+%   \href{https://www.nerdfonts.com/}{www.nerdfonts.com/}
+% }
+% which adds a huge amount of additional glyphs,
+% especially useful for developers,
+% to the original font.
+% The extended version is available from GitHub.\footnote{
+%   \href{https://github.com/ryanoasis/nerd-fonts/tree/master/patched-fonts/Inconsolata}{github.com/ryanoasis/nerd-fonts/tree/master/patched-fonts/Inconsolata}
+% }
+% This package provides a convenient way to use the font
+% with the \XeTeX{} or \LuaTeX{} engines.
+%
+% This user guide gives a brief introduction into the possibilities
+% provided by the \pkg{inconsolata-nerd-font} package.
+%
+% \subsection{Helper Macros}\label{sec:doc-helper}
+%
+% The following macro is not strictly part of the package.
+% It is actually defined by recent \LaTeX{} kernels.
+% However, to make the package compatible with older kernels, too,
+% we provide it if it is not yet defined.
+%
+% The macro's purpose is to check whether the used \LaTeX{} format
+% is at least from the given date
+% and allows to execute code depending on the result of the check.
+% \begin{function}{\IfFormatAtLeastTF}
+%   \begin{syntax}
+%     \cs{IfFormatAtLeastTF} \marg{date} \marg{true} \marg{false}
+%   \end{syntax}
+%   We define this macro to execute code depending on the \LaTeX{} format date.
+%   It is only defined if it is not already part of the \LaTeX{} kernel,
+%   which it is for recent versions of the kernel.
+% \end{function}
+%
+% \subsection{Package Arguments}\label{sec:doc-arguments}
+%
+% The \pkg{inconsolata-nerd-font} package provides the following
+% load-time options.
+% \begin{variable}{variant}
+%   \begin{syntax}
+%     variant = \meta{choice}
+%   \end{syntax}
+%   Specifies which variant of the font shall be used, must be one of
+%   |default|, |mono|, or |propo|, where |default| is the default value.
+%
+%   The |mono| variant is limited to only mono-spaced characters,
+%   the |default| variant provides bigger icons (around 1.5 times the width of a
+%   normal character),
+%   the |propo| variant provides proportional symbols,
+%   which might be suitable, e.g., for presentations.
+% \end{variable}
+%
+% \begin{variable}{scale, Scale}
+%   \begin{syntax}
+%     scale = \marg{factor}
+%     Scale = \marg{factor}
+%   \end{syntax}
+%   Set the scaling of the font.
+%   See the \pkg{fontspec} documentation for more details.
+% \end{variable}
 %
 % \end{documentation}
 %
@@ -58,7 +143,7 @@
 %
 % \begin{implementation}
 %
-% \section{The \pkg{inconsolata-nerd-font} implementation}\label{impl:pkg}
+% \section{Implementation}\label{impl:pkg}
 %
 % Start the \pkg{DocStrip} guards.
 %    \begin{macrocode}
@@ -107,6 +192,85 @@
   {Support package to use the Inconsolata Nerd Font TrueType fonts}
 %    \end{macrocode}
 %
+% \subsection{Options}\label{sec:impl-options}
+%
+% Define the options for the package.
+% \begin{variable}{
+%   variant,
+%   scale,
+%   Scale,
+%   \l_@@_variant_tl,
+%   \l_@@_scale_tl,
+% }
+%    \begin{macrocode}
+\tl_new:N \l_@@_variant_tl
+
+\keys_define:nn { inconsolatanerdfont }
+  {
+    variant .choices:nn = { default, mono, propo } {
+      \tl_set_eq:NN \l_@@_variant_tl \l_keys_choice_tl
+    },
+
+    scale .tl_set:N = \l_@@_scale_tl,
+    Scale .tl_set:N = \l_@@_scale_tl,
+  }
+
+\keys_set:nn { inconsolatanerdfont }
+  {
+    variant = default,
+    scale = 0.9,
+  }
+\tl_clear:N \l_@@_variant_tl
+%    \end{macrocode}
+% \end{variable}
+%
+% Process the options
+%    \begin{macrocode}
+\IfFormatAtLeastTF { 2022-06-01 }
+  { \ProcessKeyOptions [ inconsolatanerdfont ] }
+  {
+    \RequirePackage { l3keys2e }
+    \ProcessKeysOptions { inconsolatanerdfont }
+  }
+%    \end{macrocode}
+% and set up the default variant if it was not yet chosen
+%    \begin{macrocode}
+\tl_if_empty:NT \l_@@_variant_tl
+  {
+    \tl_set:Nn \l_@@_variant_tl { default }
+  }
+%    \end{macrocode}
+%
+% \subsection{Load the Font}\label{sec:impl-load}
+%
+% We require the \pkg{fontspec} package.
+%    \begin{macrocode}
+\RequirePackage{fontspec}
+%    \end{macrocode}
+%
+% Define and set a helper variable for the respective font name suffix
+%    \begin{macrocode}
+\tl_new:N \l_@@_font_name_tl
+\tl_set:Nn \l_@@_font_name_tl {InconsolataNerdFont}
+\tl_if_eq:NnTF \l_@@_variant_tl { mono }
+  { \tl_put_right:Nn \l_@@_font_name_tl {Mono} }
+  {
+    \tl_if_eq:NnT \l_@@_variant_tl { propo }
+      { \tl_put_right:Nn \l_@@_font_name_tl {Propo} }
+  }
+%    \end{macrocode}
+%
+% Now we can actually load the font
+%    \begin{macrocode}
+\setmonofont{\l_@@_font_name_tl}[
+  BoldFont    = *-Bold,
+  Extension   = .ttf,
+  FakeStretch = {0.9},
+  Scale       = \l_@@_scale_tl,
+  UprightFont = *-Regular,
+]
+%    \end{macrocode}
+%
 %    \begin{macrocode}
 %</package>
 %    \end{macrocode}
@@ -114,3 +278,4 @@
 % \end{implementation}
 %
 % \PrintIndex
+% \PrintChanges
