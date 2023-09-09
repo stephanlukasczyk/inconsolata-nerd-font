@@ -137,6 +137,32 @@
 %   See the \pkg{fontspec} documentation for more details.
 % \end{variable}
 %
+% \subsection{Font Macros}\label{sec:doc-macros}
+%
+% While the package sets the default mono-spaced font
+% to the selected variant of the Inconsolata Nerd Font,
+% the package provides two additional macros for convenience.
+%
+% \begin{function}{\inconsolatanffamily}
+%   \begin{syntax}
+%     \cs{inconsolatanffamily}
+%   \end{syntax}
+%   A font family for the Inconsolata Nerd Font,
+%   the default variant provided by this package.
+% \end{function}
+%
+% \begin{function}{\textinconsolatanf}
+%   \begin{syntax}
+%     \cs{textinconsolatanf} \marg{text}
+%   \end{syntax}
+%   A convenience macro to typeset a short |text| using the default
+%   Inconsolata Nerd Font variant.
+% \end{function}
+%
+% The following sentence uses the \cs{textinconsolatanf}
+% to typeset the words \enquote{an example} using Inconsolata Nerd Font:
+% Just \textinconsolatanf{an example} sentence.
+%
 % \end{documentation}
 %
 % \clearpage
@@ -259,6 +285,19 @@
       { \tl_put_right:Nn \l_@@_font_name_tl {Propo} }
   }
 %    \end{macrocode}
+%
+% Define a font family for the font and a command for esiere usage
+% \begin{macro}{\inconsolatanffamily, \textinconsolatanf}
+%    \begin{macrocode}
+\newfontfamily\inconsolatanffamily{InconsolataNerdFont-Regular.ttf}[
+  BoldFont    = InconsolataNerdFont-Bold.ttf,
+  FakeStretch = {0.9},
+  NFSSFamily  = inconsolatanf,
+  Scale       = \l_@@_scale_tl,
+]
+\DeclareTextFontCommand{\textinconsolatanf}{\inconsolatanffamily}
+%    \end{macrocode}
+% \end{macro}
 %
 % Now we can actually load the font
 %    \begin{macrocode}
