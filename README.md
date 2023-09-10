@@ -1,8 +1,8 @@
 # Inconsolata Nerd Font
 
-The `inconsolata-nerd-font` package provides a convenient wrapper
-to use the [Inconsolata Nerd Font](https://github.com/ryanoasis/nerd-fonts/tree/master/patched-fonts/Inconsolata)
-with XeTeX or LuaTeX.
+The `inconsolata-nerd-font` package provides
+the [Inconsolata Nerd Font](https://github.com/ryanoasis/nerd-fonts/tree/master/patched-fonts/Inconsolata)
+with support for XeLaTeX or LuaLaTeX.
 
 ## License
 

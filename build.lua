@@ -4,9 +4,6 @@
 bundle = ""
 module = "inconsolata-nerd-font"
 
--- Release a TDS-style zip
-packtdszip = true
-
 -- Typeset only the .tex files
 typesetfile = {"*.tex"}
 
