@@ -34,15 +34,15 @@ function update_tag(file, content, tagname, tagdate)
 
   if string.match(file, "CHANGELOG.md") then
     -- CHANGELOG
-    local pattern = "v%d%.%d%.%d%d?"
+    local pattern = "v%d%.%d%"
     local url = "https://github.com/stephanlukasczyk/inconsolata-nerd-font/compare/"
-    local previous = string.match(content, "compare/(" .. pattern .. ")%.%.%.HEAD")
+    local previous = string.match(content, "compare/(" .. pattern .. ")%.%.HEAD")
     if tagname == previous then return content end
     content = string.gsub(content,
       "## %[Unreleased%]",
       "## [Unreleased]\n\n## [v" .. tagname .. "] - " .. tagdate)
     return string.gsub(content,
-      pattern .. "%.%.%.HEAD",
+      pattern .. "%.%.HEAD",
       "v" .. tagname .. "...HEAD\n[v" .. tagname .. "]: " .. url .. previous
       .. "...v" .. tagname)
   else
