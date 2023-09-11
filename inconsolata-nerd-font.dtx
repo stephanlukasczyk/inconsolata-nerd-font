@@ -162,6 +162,8 @@
 %   \end{syntax}
 %   Set the scaling of the font.
 %   See the \pkg{fontspec} documentation for more details.
+%   The default value is |MatchLowercase| to match the height of the lower-case
+%   character of the default main font of your document.
 % \end{variable}
 %
 % \subsection{Font Macros}\label{sec:doc-macros}
@@ -271,7 +273,7 @@
 \keys_set:nn { inconsolatanerdfont }
   {
     variant = default,
-    scale = 0.9,
+    scale = MatchLowercase,
   }
 \tl_clear:N \l_@@_variant_tl
 %    \end{macrocode}
