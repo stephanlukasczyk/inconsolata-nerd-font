@@ -170,7 +170,8 @@
 %
 % While the package sets the default mono-spaced font
 % to the selected variant of the Inconsolata Nerd Font,
-% the package provides two additional macros for convenience.
+% the package provides six additional macros for convenience,
+% one pair of each variant of the font.
 %
 % \begin{function}{\inconsolatanffamily}
 %   \begin{syntax}
@@ -179,12 +180,40 @@
 %   A font family for the Inconsolata Nerd Font,
 %   the default variant provided by this package.
 % \end{function}
+% \begin{function}{\inconsolatanfmonofamily}
+%   \begin{syntax}
+%     \cs{inconsolatanfmonofamily}
+%   \end{syntax}
+%   A font family for the Inconsolata Nerd Font,
+%   the mono variant provided by this package.
+% \end{function}
+% \begin{function}{\inconsolatanfpropofamily}
+%   \begin{syntax}
+%     \cs{inconsolatanfpropofamily}
+%   \end{syntax}
+%   A font family for the Inconsolata Nerd Font,
+%   the propo variant provided by this package.
+% \end{function}
 %
 % \begin{function}{\textinconsolatanf}
 %   \begin{syntax}
 %     \cs{textinconsolatanf} \marg{text}
 %   \end{syntax}
 %   A convenience macro to typeset a short |text| using the default
+%   Inconsolata Nerd Font variant.
+% \end{function}
+% \begin{function}{\textinconsolatanfmono}
+%   \begin{syntax}
+%     \cs{textinconsolatanfmono} \marg{text}
+%   \end{syntax}
+%   A convenience macro to typeset a short |text| using the mono
+%   Inconsolata Nerd Font variant.
+% \end{function}
+% \begin{function}{\textinconsolatanfpropo}
+%   \begin{syntax}
+%     \cs{textinconsolatanfpropo} \marg{text}
+%   \end{syntax}
+%   A convenience macro to typeset a short |text| using the propo
 %   Inconsolata Nerd Font variant.
 % \end{function}
 %
@@ -315,8 +344,15 @@
   }
 %    \end{macrocode}
 %
-% Define a font family for the font and a command for easier usage
-% \begin{macro}{\inconsolatanffamily, \textinconsolatanf}
+% Define a font family for the three fonts and commands for easier usage
+% \begin{macro}{
+%   \inconsolatanffamily,
+%   \inconsolatanfmonofamily,
+%   \inconsolatanfpropofamily,
+%   \textinconsolatanf,
+%   \textinconsolatanfmono,
+%   \textinconsolatanfpropo,
+% }
 %    \begin{macrocode}
 \newfontfamily\inconsolatanffamily{InconsolataNerdFont-Regular.ttf}[
   BoldFont    = InconsolataNerdFont-Bold.ttf,
@@ -324,7 +360,22 @@
   NFSSFamily  = inconsolatanf,
   Scale       = \l_@@_scale_tl,
 ]
+\newfontfamily\inconsolatanfmonofamily{InconsolataNerdFontMono-Regular.ttf}[
+  BoldFont    = InconsolataNerdFontMono-Bold.ttf,
+  FakeStretch = {0.9},
+  NFSSFamily  = inconsolatanfmono,
+  Scale       = \l_@@_scale_tl,
+]
+\newfontfamily\inconsolatanfpropofamily{InconsolataNerdFontPropo-Regular.ttf}[
+  BoldFont    = InconsolataNerdFontPropo-Bold.ttf,
+  FakeStretch = {0.9},
+  NFSSFamily  = inconsolatanfpropo,
+  Scale       = \l_@@_scale_tl,
+]
+
 \DeclareTextFontCommand{\textinconsolatanf}{\inconsolatanffamily}
+\DeclareTextFontCommand{\textinconsolatanfmono}{\inconsolatanffamilymono}
+\DeclareTextFontCommand{\textinconsolatanfpropo}{\inconsolatanffamilypropo}
 %    \end{macrocode}
 % \end{macro}
 %
