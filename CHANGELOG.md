@@ -11,6 +11,7 @@ All notable changes to this project will be documented in this file.
   the CTAN team.
 - Do not create a `.tds.zip` any more during build as this is discouraged by the
   CTAN team.
+- Fix typos and clarify the documentation.
 
 ## v0.1 — 2023–09–09
 - First public release

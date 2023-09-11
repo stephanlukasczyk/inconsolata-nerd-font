@@ -111,7 +111,8 @@
 % The extended version is available from GitHub.\footnote{
 %   \href{https://github.com/ryanoasis/nerd-fonts/tree/master/patched-fonts/Inconsolata}{github.com/ryanoasis/nerd-fonts/tree/master/patched-fonts/Inconsolata}
 % }
-% This package provides a convenient way to use the font
+% This package provides the TrueType font files
+% and a convenient way to use the font
 % with the \XeTeX{} or \LuaTeX{} engines.
 %
 % This user guide gives a brief introduction into the possibilities
@@ -122,7 +123,7 @@
 % The following macro is not strictly part of the package.
 % It is actually defined by recent \LaTeX{} kernels.
 % However, to make the package compatible with older kernels, too,
-% we provide it if it is not yet defined.
+% we provide it, if it is not yet defined.
 %
 % The macro's purpose is to check whether the used \LaTeX{} format
 % is at least from the given date
@@ -132,7 +133,7 @@
 %     \cs{IfFormatAtLeastTF} \marg{date} \marg{true} \marg{false}
 %   \end{syntax}
 %   We define this macro to execute code depending on the \LaTeX{} format date.
-%   It is only defined if it is not already part of the \LaTeX{} kernel,
+%   The macro is only defined if it is not already part of the \LaTeX{} kernel,
 %   which it is for recent versions of the kernel.
 % \end{function}
 %
@@ -312,7 +313,7 @@
   }
 %    \end{macrocode}
 %
-% Define a font family for the font and a command for esiere usage
+% Define a font family for the font and a command for easier usage
 % \begin{macro}{\inconsolatanffamily, \textinconsolatanf}
 %    \begin{macrocode}
 \newfontfamily\inconsolatanffamily{InconsolataNerdFont-Regular.ttf}[
