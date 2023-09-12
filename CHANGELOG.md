@@ -4,8 +4,9 @@ All notable changes to this project will be documented in this file.
 ## [Unreleased]
 
 ### Added
-- Added a CHANGELOG file.
+- Add a CHANGELOG file.
 - Additional macros to also easily use the variants of the font.
+- Add a notice on the licenses in the documentation itself.
 
 ### Changed
 - The description should be much clearer now, thanks to Petra Rübe-Pugliese from
