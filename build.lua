@@ -34,9 +34,9 @@ function update_tag(file, content, tagname, tagdate)
 
   if string.match(file, "CHANGELOG.md") then
     -- CHANGELOG
-    local pattern = "v%d%.%d%"
+    local pattern = "v%d%.%d"
     local url = "https://github.com/stephanlukasczyk/inconsolata-nerd-font/compare/"
-    local previous = string.match(content, "compare/(" .. pattern .. ")%.%.HEAD")
+    local previous = string.match(content, "compare/(" .. pattern .. ")%.%.%.HEAD")
     if tagname == previous then return content end
     content = string.gsub(content,
       "## %[Unreleased%]",
@@ -46,15 +46,15 @@ function update_tag(file, content, tagname, tagdate)
       "v" .. tagname .. "...HEAD\n[v" .. tagname .. "]: " .. url .. previous
       .. "...v" .. tagname)
   else
-    -- siunitx.dtx
+    -- inconsolata-nerd-font.dtx
     return string.gsub(content,
-      "\n\\ProvidesExplPackage %{inconsolata-nerd-font%} %{[^}]+%} %{[^}]+%}\n",
+      "\n\\ProvidesExplPackage %{inconsolata%-nerd%-font%} %{[^}]+%} %{[^}]+%}\n",
       "\n\\ProvidesExplPackage {inconsolata-nerd-font} {"
       .. tagdate .. "} {" .. tagname .. "}\n")
   end
 end
 
 function tag_hook(tagname)
-  os.execute('git commit -a -S -m "Step release tag"')
+  os.execute('git commit -a -S -m "Release inconsolata-nerd-font ' .. tagname .. '"')
   os.execute('git tag -s -m "" ' .. tagname)
 end
