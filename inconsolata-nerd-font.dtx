@@ -32,6 +32,8 @@
 % The next line is needed so that \GetFileInfo will be able to pick up version
 % data.
 \usepackage{inconsolata-nerd-font}
+\usepackage{unicodefonttable}
+\fonttablesetup{missing-glyph-color=black!25, color=black!50}
 \usepackage{microtype}
 \EnableCrossrefs
 \CodelineIndex
@@ -238,6 +240,26 @@
 % The following sentence uses the \cs{textinconsolatanf}
 % to typeset the words \enquote{an example} using Inconsolata Nerd Font:
 % Just \textinconsolatanf{an example} sentence.
+%
+% \section{Font Tables}\label{sec:doc-font-tables}
+%
+% \changes{v0.3}{2023-09-13}{Add font tables to the documentation.}
+%
+% This section provides character tables of the different font variants,
+% created using Frank Mittelbach's \pkg{unicodefonttable} package.
+% Thanks to Herbert Voß for his suggestion to add these.
+%
+% \subsection{Regular}\label{sec:doc-font-tables-regular}
+%
+% \displayfonttable{InconsolataNerdFont-Regular.ttf}
+%
+% \subsection{Mono Regular}\label{sec:doc-font-tables-mono}
+%
+% \displayfonttable{InconsolataNerdFontMono-Regular.ttf}
+%
+% \subsection{Proportional Regular}\label{sec:doc-font-tables-propo}
+%
+% \displayfonttable{InconsolataNerdFontPropo-Regular.ttf}
 %
 % \end{documentation}
 %
