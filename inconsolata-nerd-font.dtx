@@ -26,11 +26,16 @@
 %
 %<*driver>
 \documentclass{l3doc}
+\usepackage[UKenglish]{babel}
 \usepackage{libertinus-otf}
 \usepackage{hvlogos}
 % The next line is needed so that \GetFileInfo will be able to pick up version
 % data.
 \usepackage{inconsolata-nerd-font}
+\usepackage{microtype}
+\EnableCrossrefs
+\CodelineIndex
+\RecordChanges
 \begin{document}
   \RecordChanges
   \DocInput{\jobname.dtx}
@@ -62,6 +67,8 @@
 %   \tl_set:Nn,
 %   \tl_set_eq:NN,
 % }
+%
+% \changes{v0.1}{2023–09–09}{First public release}
 %
 % \GetFileInfo{inconsolata-nerd-font.sty}
 %
@@ -355,15 +362,9 @@
   }
 %    \end{macrocode}
 %
-% Define a font family for the three fonts and commands for easier usage
-% \begin{macro}{
-%   \inconsolatanffamily,
-%   \inconsolatanfmonofamily,
-%   \inconsolatanfpropofamily,
-%   \textinconsolatanf,
-%   \textinconsolatanfmono,
-%   \textinconsolatanfpropo,
-% }
+% Define a font family for the three fonts and commands for easier usage.
+% \begin{macro}{\inconsolatanffamily}
+%   The defaut font accessible as a \LaTeX{} font family.
 %    \begin{macrocode}
 \newfontfamily\inconsolatanffamily{InconsolataNerdFont-Regular.ttf}[
   BoldFont    = InconsolataNerdFont-Bold.ttf,
@@ -371,21 +372,49 @@
   NFSSFamily  = inconsolatanf,
   Scale       = \l_@@_scale_tl,
 ]
+%    \end{macrocode}
+% \end{macro}
+% \begin{macro}{\inconsolatanfmonofamily}
+%   \changes{v0.2}{2023–09–12}{Added macro}
+%   The mono font variant, accessible as a \LaTeX{} font family.
+%    \begin{macrocode}
 \newfontfamily\inconsolatanfmonofamily{InconsolataNerdFontMono-Regular.ttf}[
   BoldFont    = InconsolataNerdFontMono-Bold.ttf,
   FakeStretch = {0.9},
   NFSSFamily  = inconsolatanfmono,
   Scale       = \l_@@_scale_tl,
 ]
+%    \end{macrocode}
+% \end{macro}
+% \begin{macro}{\inconsolatanfpropofamily}
+%   \changes{v0.2}{2023–09–12}{Added macro}
+%   The propo font variant, accessible as a \LaTeX{} font family.
+%    \begin{macrocode}
 \newfontfamily\inconsolatanfpropofamily{InconsolataNerdFontPropo-Regular.ttf}[
   BoldFont    = InconsolataNerdFontPropo-Bold.ttf,
   FakeStretch = {0.9},
   NFSSFamily  = inconsolatanfpropo,
   Scale       = \l_@@_scale_tl,
 ]
-
+%    \end{macrocode}
+% \end{macro}
+% \begin{macro}{\textinconsolatanf}
+%   A macro to typeset text in the default font variant.
+%    \begin{macrocode}
 \DeclareTextFontCommand{\textinconsolatanf}{\inconsolatanffamily}
+%    \end{macrocode}
+% \end{macro}
+% \begin{macro}{\textinconsolatanfmono}
+%   \changes{v0.2}{2023–09–12}{Added macro}
+%   A macro to typeset text in the mono font variant.
+%    \begin{macrocode}
 \DeclareTextFontCommand{\textinconsolatanfmono}{\inconsolatanffamilymono}
+%    \end{macrocode}
+% \end{macro}
+% \begin{macro}{\textinconsolatanfpropo}
+%   \changes{v0.2}{2023–09–12}{Added macro}
+%   A macro to typeset text in the propo font variant.
+%    \begin{macrocode}
 \DeclareTextFontCommand{\textinconsolatanfpropo}{\inconsolatanffamilypropo}
 %    \end{macrocode}
 % \end{macro}
