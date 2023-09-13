@@ -40,7 +40,7 @@ function update_tag(file, content, tagname, tagdate)
     if tagname == previous then return content end
     content = string.gsub(content,
       "## %[Unreleased%]",
-      "## [Unreleased]\n\n## [v" .. tagname .. "] - " .. tagdate)
+      "## [Unreleased]\n\n## [v" .. tagname .. "] — " .. tagdate)
     return string.gsub(content,
       pattern .. "%.%.HEAD",
       "v" .. tagname .. "...HEAD\n[v" .. tagname .. "]: " .. url .. previous
