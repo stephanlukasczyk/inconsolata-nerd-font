@@ -28,7 +28,7 @@ jobs:
         run: l3build ctan -q -H
 
       - name: Create GitHub release
-        uses: ncipollo/release-action@a2e71bdd4e7dab70ca26a852f29600c98b33153e # v1.12.0
+        uses: ncipollo/release-action@v1
         id: release
         with:
-          artifacts: "build/distrib/ctan/*.zip"
+          artifacts: "build/distrib/ctan/*.zip,build/doc/*.pdf"
