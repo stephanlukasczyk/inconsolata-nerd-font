@@ -3,6 +3,16 @@ All notable changes to this project will be documented in this file.
 
 ## [Unreleased]
 
+## [v0.3] — 2023-09-13
+
+### Added
+- Track the changes in the documentation, too.
+- Provide the glyph tables of the different font variants in the documentation.
+- Provide the documentation PDF as a build artefact on GitHub.
+
+### Fixed
+- The automated tagging of a release now works with `l3build`.
+
 ## [v0.2] — 2023–09–12
 
 ### Added
@@ -20,5 +30,6 @@ All notable changes to this project will be documented in this file.
 ## v0.1 — 2023–09–09
 - First public release
 
-[Unreleased]: https://github.com/stephanlukasczyk/inconsolata-nerd-font/compare/v0.2...HEAD
+[Unreleased]: https://github.com/stephanlukasczyk/inconsolata-nerd-font/compare/v0.3...HEAD
+[v0.3]: https://github.com/stephanlukasczyk/inconsolata-nerd-font/compare/v0.3...v0.2
 [v0.2]: https://github.com/stephanlukasczyk/inconsolata-nerd-font/compare/v0.2...v0.1
