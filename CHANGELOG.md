@@ -3,6 +3,14 @@ All notable changes to this project will be documented in this file.
 
 ## [Unreleased]
 
+## [v0.4] — 2023-12-08
+
+### Changed
+- Update to the latest version of the Nerd Fonts
+- Replace the Inconsolata fonts by its variant *InconsolataLGC*, which also
+  contains Hellenic and Cyrilic glyphs, as well as bold-italic and italic
+  variants.
+
 ## [v0.3] — 2023-09-13
 
 ### Added
@@ -30,6 +38,7 @@ All notable changes to this project will be documented in this file.
 ## v0.1 — 2023–09–09
 - First public release
 
-[Unreleased]: https://github.com/stephanlukasczyk/inconsolata-nerd-font/compare/v0.3...HEAD
+[Unreleased]: https://github.com/stephanlukasczyk/inconsolata-nerd-font/compare/v0.4...HEAD
+[v0.4]: https://github.com/stephanlukasczyk/inconsolata-nerd-font/compare/v0.4...v0.3
 [v0.3]: https://github.com/stephanlukasczyk/inconsolata-nerd-font/compare/v0.3...v0.2
 [v0.2]: https://github.com/stephanlukasczyk/inconsolata-nerd-font/compare/v0.2...v0.1
