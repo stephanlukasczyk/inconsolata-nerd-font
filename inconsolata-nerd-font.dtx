@@ -118,7 +118,7 @@
 % especially useful for developers,
 % to the original font.
 % The extended version is available from GitHub.\footnote{
-%   \href{https://github.com/ryanoasis/nerd-fonts/tree/master/patched-fonts/Inconsolata}{github.com/ryanoasis/nerd-fonts/tree/master/patched-fonts/Inconsolata}
+%   \href{https://github.com/ryanoasis/nerd-fonts/tree/master/patched-fonts/InconsolataLGC}{github.com/ryanoasis/nerd-fonts/tree/master/patched-fonts/InconsolataLGC}
 % }
 % This package provides the TrueType font files
 % and a convenient way to use the font
@@ -127,6 +127,12 @@
 % This user guide gives a brief introduction into the possibilities
 % provided by the \pkg{inconsolata-nerd-font} package.
 %
+% \changes{v0.4}{2023-12-08}{Change variant to have bold-italic and italic glyphs, too}
+% Since version 0.4, \pkg{inconsolata-nerd-font} ships and uses the extended
+% version of the Inconsolata font, called \emph{InconsolataLGC}.
+% This variant also contains Hellenic and Cyrilic glyphs, as well as bold-italic
+% and italic variants.
+%
 % \subsection{License}\label{sec:doc-license}
 %
 % Permission is granted to copy, distribute, and/or modify this software under
@@ -134,7 +140,7 @@
 % later~(\href{https://www.latex-project.org/lppl.txt}{https://www.latex-project.org/lppl.txt}).
 % The software has the status \enquote{maintained}.
 %
-% The font files bundled with the package (\texttt{InconsolataNerdFont*.ttf})
+% The font files bundled with the package (\texttt{InconsolataLGCNerdFont*.ttf})
 % are licensed under the terms of the SIL Open Font License~(LPPL),
 % version~1.1~(\href{http://scripts.sil.org/OFL}{http://scripts.sil.org/OFL}).
 %
@@ -251,15 +257,15 @@
 %
 % \subsection{Regular}\label{sec:doc-font-tables-regular}
 %
-% \displayfonttable{InconsolataNerdFont-Regular.ttf}
+% \displayfonttable{InconsolataLGCNerdFont-Regular.ttf}
 %
 % \subsection{Mono Regular}\label{sec:doc-font-tables-mono}
 %
-% \displayfonttable{InconsolataNerdFontMono-Regular.ttf}
+% \displayfonttable{InconsolataLGCNerdFontMono-Regular.ttf}
 %
 % \subsection{Proportional Regular}\label{sec:doc-font-tables-propo}
 %
-% \displayfonttable{InconsolataNerdFontPropo-Regular.ttf}
+% \displayfonttable{InconsolataLGCNerdFontPropo-Regular.ttf}
 %
 % \end{documentation}
 %
@@ -312,7 +318,7 @@
 %
 % Identify the package and give the overall version information.
 %    \begin{macrocode}
-\ProvidesExplPackage {inconsolata-nerd-font} {2023-09-13} {0.3}
+\ProvidesExplPackage {inconsolata-nerd-font} {2023-12-08} {0.4}
   {Support package to use the Inconsolata Nerd Font TrueType fonts}
 %    \end{macrocode}
 %
@@ -375,7 +381,7 @@
 % Define and set a helper variable for the respective font name suffix
 %    \begin{macrocode}
 \tl_new:N \l_@@_font_name_tl
-\tl_set:Nn \l_@@_font_name_tl {InconsolataNerdFont}
+\tl_set:Nn \l_@@_font_name_tl {InconsolataLGCNerdFont}
 \tl_if_eq:NnTF \l_@@_variant_tl { mono }
   { \tl_put_right:Nn \l_@@_font_name_tl {Mono} }
   {
@@ -388,11 +394,13 @@
 % \begin{macro}{\inconsolatanffamily}
 %   The defaut font accessible as a \LaTeX{} font family.
 %    \begin{macrocode}
-\newfontfamily\inconsolatanffamily{InconsolataNerdFont-Regular.ttf}[
-  BoldFont    = InconsolataNerdFont-Bold.ttf,
-  FakeStretch = {0.9},
-  NFSSFamily  = inconsolatanf,
-  Scale       = \l_@@_scale_tl,
+\newfontfamily\inconsolatanffamily{InconsolataLGCNerdFont-Regular.ttf}[
+  BoldFont       = InconsolataLGCNerdFont-Bold.ttf,
+  BoldItalicFont = InconsolataLGCNerdFont-BoldItalic.ttf,
+  ItalicFont     = InconsolataLGCNerdFont-Italic.ttf,
+  FakeStretch    = {0.9},
+  NFSSFamily     = inconsolatanf,
+  Scale          = \l_@@_scale_tl,
 ]
 %    \end{macrocode}
 % \end{macro}
@@ -400,11 +408,13 @@
 %   \changes{v0.2}{2023–09–12}{Added macro}
 %   The mono font variant, accessible as a \LaTeX{} font family.
 %    \begin{macrocode}
-\newfontfamily\inconsolatanfmonofamily{InconsolataNerdFontMono-Regular.ttf}[
-  BoldFont    = InconsolataNerdFontMono-Bold.ttf,
-  FakeStretch = {0.9},
-  NFSSFamily  = inconsolatanfmono,
-  Scale       = \l_@@_scale_tl,
+\newfontfamily\inconsolatanfmonofamily{InconsolataLGCNerdFontMono-Regular.ttf}[
+  BoldFont       = InconsolataLGCNerdFontMono-Bold.ttf,
+  BoldItalicFont = InconsolataLGCNerdFontMono-BoldItalic.ttf,
+  ItalicFont     = InconsolataLGCNerdFontMono-Italic.ttf,
+  FakeStretch    = {0.9},
+  NFSSFamily     = inconsolatanfmono,
+  Scale          = \l_@@_scale_tl,
 ]
 %    \end{macrocode}
 % \end{macro}
@@ -412,11 +422,13 @@
 %   \changes{v0.2}{2023–09–12}{Added macro}
 %   The propo font variant, accessible as a \LaTeX{} font family.
 %    \begin{macrocode}
-\newfontfamily\inconsolatanfpropofamily{InconsolataNerdFontPropo-Regular.ttf}[
-  BoldFont    = InconsolataNerdFontPropo-Bold.ttf,
-  FakeStretch = {0.9},
-  NFSSFamily  = inconsolatanfpropo,
-  Scale       = \l_@@_scale_tl,
+\newfontfamily\inconsolatanfpropofamily{InconsolataLGCNerdFontPropo-Regular.ttf}[
+  BoldFont       = InconsolataLGCNerdFontPropo-Bold.ttf,
+  BoldItalicFont = InconsolataLGCNerdFontPropo-BoldItalic.ttf,
+  ItalicFont     = InconsolataLGCNerdFontPropo-Italic.ttf,
+  FakeStretch    = {0.9},
+  NFSSFamily     = inconsolatanfpropo,
+  Scale          = \l_@@_scale_tl,
 ]
 %    \end{macrocode}
 % \end{macro}
@@ -444,11 +456,13 @@
 % Now we can actually load the font
 %    \begin{macrocode}
 \setmonofont{\l_@@_font_name_tl}[
-  BoldFont    = *-Bold,
-  Extension   = .ttf,
-  FakeStretch = {0.9},
-  Scale       = \l_@@_scale_tl,
-  UprightFont = *-Regular,
+  BoldFont       = *-Bold,
+  BoldItalicFont = *-BoldItalic,
+  ItalicFont     = *-Italic,
+  Extension      = .ttf,
+  FakeStretch    = {0.9},
+  Scale          = \l_@@_scale_tl,
+  UprightFont    = *-Regular,
 ]
 %    \end{macrocode}
 %
