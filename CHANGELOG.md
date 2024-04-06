@@ -3,6 +3,12 @@ All notable changes to this project will be documented in this file.
 
 ## [Unreleased]
 
+## [v0.5] — 2024-04-06
+
+### Changed
+- Update to Nerd Fonts v3.2.0, which updates the InconsolataLGC fonts to version
+  1.5.2.
+
 ## [v0.4] — 2023-12-08
 
 ### Changed
@@ -38,7 +44,8 @@ All notable changes to this project will be documented in this file.
 ## v0.1 — 2023–09–09
 - First public release
 
-[Unreleased]: https://github.com/stephanlukasczyk/inconsolata-nerd-font/compare/v0.4...HEAD
+[Unreleased]: https://github.com/stephanlukasczyk/inconsolata-nerd-font/compare/v0.5...HEAD
+[v0.5]: https://github.com/stephanlukasczyk/inconsolata-nerd-font/compare/v0.5...v0.4
 [v0.4]: https://github.com/stephanlukasczyk/inconsolata-nerd-font/compare/v0.4...v0.3
 [v0.3]: https://github.com/stephanlukasczyk/inconsolata-nerd-font/compare/v0.3...v0.2
 [v0.2]: https://github.com/stephanlukasczyk/inconsolata-nerd-font/compare/v0.2...v0.1
