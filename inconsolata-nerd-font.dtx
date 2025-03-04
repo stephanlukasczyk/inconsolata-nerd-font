@@ -289,7 +289,7 @@
 % if required.
 %    \begin{macrocode}
 \@ifundefined{ExplLoaderFileDate}
-  { \RequirePackage{expl3} }
+  { \RequirePackage { expl3 } }
   {}
 %    \end{macrocode}
 % Make sure that the version of \pkg{l3kernel} in use is sufficiently new.
@@ -376,18 +376,18 @@
 %
 % We require the \pkg{fontspec} package.
 %    \begin{macrocode}
-\RequirePackage{fontspec}
+\RequirePackage { fontspec }
 %    \end{macrocode}
 %
 % Define and set a helper variable for the respective font name suffix
 %    \begin{macrocode}
 \tl_new:N \l_@@_font_name_tl
-\tl_set:Nn \l_@@_font_name_tl {InconsolataLGCNerdFont}
+\tl_set:Nn \l_@@_font_name_tl { InconsolataLGCNerdFont }
 \tl_if_eq:NnTF \l_@@_variant_tl { mono }
-  { \tl_put_right:Nn \l_@@_font_name_tl {Mono} }
+  { \tl_put_right:Nn \l_@@_font_name_tl { Mono } }
   {
     \tl_if_eq:NnT \l_@@_variant_tl { propo }
-      { \tl_put_right:Nn \l_@@_font_name_tl {Propo} }
+      { \tl_put_right:Nn \l_@@_font_name_tl { Propo } }
   }
 %    \end{macrocode}
 %
@@ -395,11 +395,11 @@
 % \begin{macro}{\inconsolatanffamily}
 %   The defaut font accessible as a \LaTeX{} font family.
 %    \begin{macrocode}
-\newfontfamily\inconsolatanffamily{InconsolataLGCNerdFont-Regular.ttf}[
+\newfontfamily\inconsolatanffamily { InconsolataLGCNerdFont-Regular.ttf } [
   BoldFont       = InconsolataLGCNerdFont-Bold.ttf,
   BoldItalicFont = InconsolataLGCNerdFont-BoldItalic.ttf,
   ItalicFont     = InconsolataLGCNerdFont-Italic.ttf,
-  FakeStretch    = {0.9},
+  FakeStretch    = { 0.9 },
   NFSSFamily     = inconsolatanf,
   Scale          = \l_@@_scale_tl,
 ]
@@ -409,59 +409,63 @@
 %   \changes{v0.2}{2023–09–12}{Added macro}
 %   The mono font variant, accessible as a \LaTeX{} font family.
 %    \begin{macrocode}
-\newfontfamily\inconsolatanfmonofamily{InconsolataLGCNerdFontMono-Regular.ttf}[
-  BoldFont       = InconsolataLGCNerdFontMono-Bold.ttf,
-  BoldItalicFont = InconsolataLGCNerdFontMono-BoldItalic.ttf,
-  ItalicFont     = InconsolataLGCNerdFontMono-Italic.ttf,
-  FakeStretch    = {0.9},
-  NFSSFamily     = inconsolatanfmono,
-  Scale          = \l_@@_scale_tl,
-]
+\newfontfamily\inconsolatanfmonofamily
+  { InconsolataLGCNerdFontMono-Regular.ttf } [
+    BoldFont       = InconsolataLGCNerdFontMono-Bold.ttf,
+    BoldItalicFont = InconsolataLGCNerdFontMono-BoldItalic.ttf,
+    ItalicFont     = InconsolataLGCNerdFontMono-Italic.ttf,
+    FakeStretch    = { 0.9 },
+    NFSSFamily     = inconsolatanfmono,
+    Scale          = \l_@@_scale_tl,
+  ]
 %    \end{macrocode}
 % \end{macro}
 % \begin{macro}{\inconsolatanfpropofamily}
 %   \changes{v0.2}{2023–09–12}{Added macro}
 %   The propo font variant, accessible as a \LaTeX{} font family.
 %    \begin{macrocode}
-\newfontfamily\inconsolatanfpropofamily{InconsolataLGCNerdFontPropo-Regular.ttf}[
-  BoldFont       = InconsolataLGCNerdFontPropo-Bold.ttf,
-  BoldItalicFont = InconsolataLGCNerdFontPropo-BoldItalic.ttf,
-  ItalicFont     = InconsolataLGCNerdFontPropo-Italic.ttf,
-  FakeStretch    = {0.9},
-  NFSSFamily     = inconsolatanfpropo,
-  Scale          = \l_@@_scale_tl,
-]
+\newfontfamily\inconsolatanfpropofamily
+  { InconsolataLGCNerdFontPropo-Regular.ttf } [
+    BoldFont       = InconsolataLGCNerdFontPropo-Bold.ttf,
+    BoldItalicFont = InconsolataLGCNerdFontPropo-BoldItalic.ttf,
+    ItalicFont     = InconsolataLGCNerdFontPropo-Italic.ttf,
+    FakeStretch    = { 0.9 },
+    NFSSFamily     = inconsolatanfpropo,
+    Scale          = \l_@@_scale_tl,
+  ]
 %    \end{macrocode}
 % \end{macro}
 % \begin{macro}{\textinconsolatanf}
 %   A macro to typeset text in the default font variant.
 %    \begin{macrocode}
-\DeclareTextFontCommand{\textinconsolatanf}{\inconsolatanffamily}
+\DeclareTextFontCommand { \textinconsolatanf } { \inconsolatanffamily }
 %    \end{macrocode}
 % \end{macro}
 % \begin{macro}{\textinconsolatanfmono}
 %   \changes{v0.2}{2023–09–12}{Added macro}
 %   A macro to typeset text in the mono font variant.
 %    \begin{macrocode}
-\DeclareTextFontCommand{\textinconsolatanfmono}{\inconsolatanffamilymono}
+\DeclareTextFontCommand { \textinconsolatanfmono } { \inconsolatanffamilymono }
 %    \end{macrocode}
 % \end{macro}
 % \begin{macro}{\textinconsolatanfpropo}
 %   \changes{v0.2}{2023–09–12}{Added macro}
 %   A macro to typeset text in the propo font variant.
 %    \begin{macrocode}
-\DeclareTextFontCommand{\textinconsolatanfpropo}{\inconsolatanffamilypropo}
+\DeclareTextFontCommand { \textinconsolatanfpropo } {
+  \inconsolatanffamilypropo
+}
 %    \end{macrocode}
 % \end{macro}
 %
 % Now we can actually load the font
 %    \begin{macrocode}
-\setmonofont{\l_@@_font_name_tl}[
+\setmonofont { \l_@@_font_name_tl } [
   BoldFont       = *-Bold,
   BoldItalicFont = *-BoldItalic,
   ItalicFont     = *-Italic,
   Extension      = .ttf,
-  FakeStretch    = {0.9},
+  FakeStretch    = { 0.9 },
   Scale          = \l_@@_scale_tl,
   UprightFont    = *-Regular,
 ]
