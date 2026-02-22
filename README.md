@@ -1,3 +1,5 @@
+*Please note:* As of 2026–02–22 this repository is archived, development continues on [codeberg](https://codeberg.org/stephanlukasczyk/inconsolata-nerd-font).  Please checkout the repository there to get the latest and greatest changes!
+
 # Inconsolata Nerd Font
 
 The `inconsolata-nerd-font` package provides
